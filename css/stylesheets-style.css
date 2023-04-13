@@ -1,0 +1,117 @@
+/*
+  Copyright (c) SirLennox 2022
+  You are NOT allowed to use this in any way without my permission.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300&display=swap');
+
+.nocursor {
+  cursor: none;
+}
+
+* {
+  font-family: 'Fredoka', sans-serif;
+  background-color: black;
+}
+
+body {
+  margin: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.right {
+  color: white;
+
+  text-align: center;
+  position: fixed;
+  /* or absolute */
+  top: 50%;
+  left: 95%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  animation: fadein 3s;
+  -moz-animation: fadein 3s;
+  /* Firefox */
+  -webkit-animation: fadein 3s;
+  /* Safari and Chrome */
+  -o-animation: fadein 3s;
+  /* Opera */
+}
+
+.transparent {
+  background-color: transparent;
+}
+
+.center {
+  color: white;
+
+  text-align: center;
+  position: fixed;
+  /* or absolute */
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  animation: fadein 3s;
+  -moz-animation: fadein 3s;
+  /* Firefox */
+  -webkit-animation: fadein 3s;
+  /* Safari and Chrome */
+  -o-animation: fadein 3s;
+  /* Opera */
+}
+
+.footer {
+  color: white;
+
+  text-align: center;
+  position: fixed;
+  /* or absolute */
+  top: 90%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  animation: fadein 3s;
+  -moz-animation: fadein 3s;
+  /* Firefox */
+  -webkit-animation: fadein 3s;
+  /* Safari and Chrome */
+  -o-animation: fadein 3s;
+  /* Opera */
+}
+
+.header {
+  color: white;
+
+  text-align: center;
+  position: fixed;
+  /* or absolute */
+  top: 10%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  animation: fadein 3s;
+  -moz-animation: fadein 3s;
+  /* Firefox */
+  -webkit-animation: fadein 3s;
+  /* Safari and Chrome */
+  -o-animation: fadein 3s;
+  /* Opera */
+}
+
+.unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.undecorated {
+  text-decoration: none;
+  text-decoration-color: white;
+  color: white;
+}

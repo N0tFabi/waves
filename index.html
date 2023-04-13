@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html><head>
+    <title>NotFabi</title>
+
+    <!-- OpenGraphics Info -->
+    <meta property="og:title" content="NotFabi">
+    <meta property="og:description" content="NotFabi's Website">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Viewport Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/stylesheets-style.css" type="text/css">
+    <link rel="stylesheet" href="css/css-all.min.css" type="text/css">
+    <link rel="stylesheet" href="css/stylesheets-tooltip.css" type="text/css">
+
+    <!-- Scripts -->
+    <script src="js/1136-javascripts-animations.js"></script>
+
+</head>
+
+<body>
+
+<canvas id="wave" style="width: 100%; height: 100%; display: none" class=""></canvas>
+<canvas id="smoke" style="width: 100%; height: 100%;" class=""></canvas>
+
+
+<!-- Center -->
+<div class="center unselectable undecorated transparent">
+    <!-- Info -->
+    <h1 id="name" class="transparent"></h1>
+    <h3 id="description" class="transparent"></h3>
+</div>
+
+<!-- Header -->
+<div class="header unselectable transparent">
+
+    <!-- Clock -->
+    <div id="clock" style="display: none" class="transparent"></div>
+    <br>
+</div>
+
+
+<!-- Footer -->
+<div class="footer unselectable undecorated transparent">
+
+    <!-- Links -->
+    <div id="links" class="undecorated transparent" style="display: none">
+        <!-- GitHub -->
+        <a href="https://github.com/N0tFabi" target="_blank" class="undecorated transparent">
+            <i class="fa-brands fa-github fa-2x tooltip transparent">
+                <span class="tooltiptext">Open in new tab</span>
+            </i>
+        </a>
+        &nbsp;
+
+        <!-- Discord -->
+        <i class="fa-brands fa-discord fa-2x tooltip transparent" onclick="copyDiscord()">
+            <span class="tooltiptext" id="discordtooltip">Copy to clipboard</span>
+        </i>
+    </div>
+
+</div>
+
+    <script src="js/684-javascripts-smoke.js"></script>
+    <script src="js/dist-bundle.iife.js"></script>
+
+    <script src="js/8015-javascripts-time.js"></script>
+
+    <script>
+
+        window.oncontextmenu = () => {
+            if (document.getElementById("smoke").style.display === "none") {
+                showSmoke();
+            } else {
+                showWave();
+            }
+            return false;
+        };
+
+        function showWave() {
+            document.getElementById("wave").style.display = null
+            document.getElementById("smoke").style.display = "none"
+        }
+
+        function showSmoke() {
+            document.getElementById("smoke").style.display = null
+            document.getElementById("wave").style.display = "none"
+        }
+
+        animateText("NotFabi", (text, finished) => {
+            document.getElementById("name").innerText = text;
+
+            if (finished) {
+                document.getElementById("links").style.display = null
+                document.getElementById("clock").style.display = null
+                animateText(getCurrentTime(), (text, finished) => {
+                    document.getElementById("clock").innerText = text
+                    if (finished) {
+                        startTimeUpdate()
+                    }
+                }, 100)
+
+                animateText("Mom, it works!", (text, finished) => {
+                    document.getElementById("description").innerText = text;
+                }, 100)
+            }
+        }, 175)
+
+        function copyDiscord() {
+            navigator.clipboard.writeText('NotFabi#3973');
+            document.getElementById("discordtooltip").innerText = "Copied to clipboard!"
+            setTimeout(() => document.getElementById("discordtooltip").innerText = "Copy to clipboard", 1000)
+        }
+    </script>
+
+    <script>
+        canvas.addEventListener("click", e => {
+            if (canvas.classList.contains("nocursor")) {
+                canvas.classList.remove("nocursor");
+            } else {
+                canvas.classList.add("nocursor");
+            }
+        });
+    </script>
+
+    <script>
+        var wave = new Wave();
+    </script>
+
+</body></html>
